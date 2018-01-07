@@ -1,0 +1,8 @@
+# temporary data
+tmp/*
+
+# data dir
+data/*
+
+# workspace
+octave-workspace
