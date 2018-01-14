@@ -35,7 +35,7 @@ if size(sam, 1) ~= 6
 	tlab = e(tlab, :)';
 end
 acc = [];
-for i = 1:5
-	res = mlp(sam, lab, tsam, tlab, [6 5 4 3], option)
+for i = 1:20
+	res = mlp(sam, lab, tsam, tlab)
     acc = [acc, res];
 end
