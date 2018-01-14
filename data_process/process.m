@@ -1,18 +1,17 @@
 %{
   fft transform
-  add amplitude
-  add max frequency
+  add five peaks
 %}
 function [res] = process(sample)
   % assume that there are 1000 feature
   % symmetry property filter 501~1000 component
   % observed that component above 250 decrease to zero
   fft_sample = abs(fft(sample, 3000, 2));
-  % 4 peak: [1, 20], [25, 40], [50, 70], [350, 450], [1450, 1550]
+  % 4 peak: [1, 20], [25, 40], [50, 70], [350, 480], [1450, 1550]
   p1 = 1:20;
   p2 = 25:40;
   p3 = 50:70;
-  p4 = 350:450;
+  p4 = 350:480;
   p5 = 1450:1550;
   sam = medfilt2(fft_sample, [1 3]);
   sam = medfilt2(sam, [1 3]);
