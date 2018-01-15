@@ -7,7 +7,7 @@ function [sub_sample, sub_label] = sub_sam(sample, label, k)
 		idx = find(lab == i);
 		cur_lab = label(:, idx(1));
 		if length(idx) < k
-			printf('No enough class %d sample.\n', i);
+			fprintf('No enough class %d sample.\n', i);
 			sub_sample = [sub_sample, sample(:, idx)];
 			sub_label = [sub_label, repmat(cur_lab, 1, length(idx))];
 			continue;

@@ -8,7 +8,7 @@ function [vec, param] = pca_vec(sample, prop, mode)
   param.mu = mean(sample);
   param.std = std(sample);
   sample = (sample - param.mu) ./ param.std;
-  [COEFF, SCORE, latent] = pca(sample);
+  [COEFF, ~, latent] = pca(sample);
   p = cumsum(latent) ./ sum(latent);
   if mode == 1
     vec = COEFF(:, 1:prop);

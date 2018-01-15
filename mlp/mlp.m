@@ -1,4 +1,4 @@
-function [acc] = mlp(sample, label, tsample, tlabel)
+function [acc, model, dist] = mlp(sample, label, tsample, tlabel)
 	% mm = minmax(sample);
 	% net = newff(mm, si, option.trf, option.btf, option.blf, option.pf);
 	net = feedforwardnet([9, 7, 5]);
@@ -6,4 +6,10 @@ function [acc] = mlp(sample, label, tsample, tlabel)
 	[~, pred] = max(sim(model, tsample));
 	[~, tlab] = max(tlabel);
 	acc = 1.0 * length(find(pred == tlab)) / length(tlab);
+    dist = zeros(3, 3);
+    for i = 1:3
+        for j = 1:3
+            dist(i, j) = length(find(pred == i & tlab == j));
+        end
+    end
 end
