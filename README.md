@@ -3,7 +3,7 @@
 Given brain wave and corresponding sleep stage data set,
 train a MLP to predict the sleep stage of brain wave sample in test set.
 
-The overall record of this experiment can be found in `result/report.pdf`
+The overall record of this experiment can be found in `report/report.pdf`
 
 ## Quick start  ##
 
@@ -43,4 +43,4 @@ The parameters of MLP network can be adjusted in `mlp/mlp.m`, like network
 size, training function, epoch limitation, etc.
 
 Other parameters in PCA, normalization, linear scaling can be further examined
-in `data_process` directory, see details in `result/report.pdf`.
+in `data_process` directory, see details in `report/report.pdf`.
