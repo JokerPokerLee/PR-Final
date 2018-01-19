@@ -16,9 +16,11 @@ In Matlab<sup>&reg;</sup>:
 >> pred = mlp_predict(model);
 ```
 Run `main.m` to load data.
+
 Run `run_mlp.m` to train the MLP. It will return accuracy **acc** and the predicted
 results (including a trained MLP **model** and the corresponding evaluation metrics
 on a 3 by 3 matrix form **dist**) on cross validation set.
+
 Run `mlp_predict.m` to predict sleep stage of test samples using the **model**.
 
 If want to start over:
