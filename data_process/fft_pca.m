@@ -1,6 +1,6 @@
 function [norm_sample, norm_tsample] = fft_pca(sample, tsample, p, mode)
 
-    global test_sample;
+    global test_sample vec pca_param;
 
     x = setdiff([1:500, 1450:1500], 31:30:500);
     fft_sample = abs(fft(sample, 3000, 2));

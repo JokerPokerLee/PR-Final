@@ -1,5 +1,5 @@
 function [sam, lab, tsam, tlab] = fil_sca(sample, label, tsample, tlabel)
-    global test_sample;
+    global test_sample sca_param;
 
 	% remove outliar (two std away from mean)
 	[fil_sam, fil_lab, ~] = rm_outlier(sample, label, []);

@@ -20,14 +20,15 @@ function [acc, model, dist] = run_mlp()
     test_sample = test_sample';
     
     % equal training set of each class
-    % [sam, lab] = sub_sam(sam, lab, 3000);
+    % [sam, lab] = sub_sam(sam, lab, 1000);
     %--- It turns out that more sample more accurate. ---%
     
-    rnd = 5;
+    rnd = 10;
     acc = zeros(1, rnd);
     bst = 0.0;
     bst_mod = 0;
     bst_dist = 0;
+    avg_dist = zeros(3, 3);
     for i = 1:rnd
         fprintf('Round %d: ', i);
         [res, model, dist] = mlp(sam, lab, tsam, tlab);
@@ -38,6 +39,7 @@ function [acc, model, dist] = run_mlp()
             bst_dist = dist;
         end
         acc(i) = res;
+        avg_dist = avg_dist + dist;
     end
     model = bst_mod;
     dist = bst_dist;

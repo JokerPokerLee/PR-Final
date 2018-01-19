@@ -1,7 +1,6 @@
 function [acc, model, dist] = mlp(sample, label, tsample, tlabel)
-	% mm = minmax(sample);
-	% net = newff(mm, si, option.trf, option.btf, option.blf, option.pf);
-	net = feedforwardnet([9, 7, 5]);
+	net = feedforwardnet([8, 6], 'trainbr');
+    net.trainParam.epochs = 100;
 	model = train(net, sample, label);
 	[~, pred] = max(sim(model, tsample));
 	[~, tlab] = max(tlabel);
