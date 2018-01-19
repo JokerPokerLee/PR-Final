@@ -1,0 +1,63 @@
+\section{实验函数}
+
+该部分主要阐明实验过程中调用\MATLAB 平台的相关函数及使用原理。
+
+\subsection{feedforwardnet(hiddenSizes, trainFcn)}
+
+网络包含一系列的层次，第一层与网络输入连接，接下来的层次与上一次连接。
+最后一层产生网络的输出。\texttt{feedforward}网络可以用作输入和输出的映射，
+只含有一个隐含层的神经网络可以拟合任意有限的输入输出映射问题。
+输入的变量有两个可以选择，前者是对隐层的设置，可以有多层并且设置每层的神经元个数。
+后者可以设置训练函数，默认为\texttt{trainlm}。
+
+\begin{table}[ht]
+	\centering
+	\caption{feedforwardnet函数参数说明}
+	\label{tab:fwfunc}
+	\begin{tabular}{ll}
+		\hline
+		hiddenSizes & \begin{tabular}[c]{@{}l@{}}Row vector of one or\\ more hidden layer sizes (default = 10)\end{tabular} \\ \hline
+		trainFcn    & \begin{tabular}[c]{@{}l@{}}Training function\\ (default = 'trainlm')\end{tabular}                     \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsection{性能函数（performance function）}
+
+Mean-Square Error( MSE) 均方误差是反映估计量与被估计量之间差异程度的度量；
+Sum of Squares for Error(SSE)是误差项平方和；
+Mean Squared Error with Regularization performance function(MSEREG)是正则化性能函数均方误差。
+
+\subsection{Matlab自带神经网络库中可用的训练函数}
+
+\begin{table}[ht]
+	\centering
+	\caption{训练函数参数说明}
+	\label{tab:train}
+	\begin{tabular}{@{}ll@{}}
+		\toprule
+		训练方法                  & 训练函数     \\ \midrule
+		梯度下降法                 & traingd  \\
+		有动量的梯度下降法             & traingdm \\
+		自适应lr梯度下降法            & traingda \\
+		自适应lr动量梯度下降法          & traingdx \\
+		弹性梯度下降法               & trainrp  \\
+		Fletcher-Reeves共轭梯度法  & traincgf \\
+		Ploak-Ribiere共轭梯度法    & traincgp \\
+		Powell-Beale共轭梯度法     & traincgb \\
+		量化共轭梯度法               & trainscg \\
+		拟牛顿算法                 & trainbfg \\
+		一步正割算法                & trainoss \\
+		Levenberg-Marquardt13 & trainlm  \\ \bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{BP网络常用传递函数}
+
+Log-sigmoid型函数的输入值可取任意值，输出值在0和1之间；
+
+tan-sigmod型传递函数tansig的输入值可取任意值，输出值在-1到+1之间；
+
+purelin线性传递函数的输入与输出值可取任意值。
+
+BP网络通常有一个或多个隐层，该层中的神经元均采用sigmoid型传递函数，
+输出层的神经元则采用线性传递函数，整个网络的输出可以取任意值。
