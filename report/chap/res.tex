@@ -14,17 +14,29 @@
 
 \subsection{正确率87.5+\%}
 
-\begin{table}[ht]
-	\centering
-	\caption{预测分布矩阵}
-	\label{tab:eva}
-	\begin{tabular}{cccc}
-		& label 1 & label 2 & label 3 \\
-		pred 1 & 95      & 32      & 1       \\
-		pred 2 & 40      & 832     & 45      \\
-		pred 3 & 1       & 28      & 109    
-	\end{tabular}
-\end{table}
+\begin{figure}
+	\begin{floatrow}
+	\ffigbox{%
+		\centering
+		\includegraphics[width=.9\linewidth]{acc}
+		\label{fig:acc}
+	}{%
+		\caption{10次预测正确率分布}
+	}
+	\capbtabbox{%
+		\centering
+		\begin{tabular}{cccc}
+			& label 1 & label 2 & label 3 \\
+			pred 1 & 95      & 32      & 1       \\
+			pred 2 & 40      & 832     & 45      \\
+			pred 3 & 1       & 28      & 109    
+		\end{tabular}
+		\label{tab:eva}
+	}{%
+		\caption{预测分布矩阵}
+	}
+	\end{floatrow}
+\end{figure}
 
 我组通过多次训练，对网络参数进行修改，并且多次重新调整训练数据的维度和数量之后，
-可以将训练模型的准确率基本稳定在86+\%，并且最佳模型高达87.57\%（如表~\ref{tab:eva}）。
+可以将训练模型的准确率基本稳定在86+\%（见下图），并且最佳模型高达87.57\%（见下表）。
